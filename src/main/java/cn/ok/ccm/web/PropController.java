@@ -1,6 +1,5 @@
 package cn.ok.ccm.web;
 
-import cn.ok.ccm.dto.Result;
 import cn.ok.ccm.entity.Property;
 import cn.ok.ccm.repository.PropertyRepository;
 import lombok.extern.slf4j.Slf4j;
@@ -16,8 +15,7 @@ import java.util.List;
  * PROJECT_NAME: ccm
  * PACKAGE_NAME: cn.ok.ccm.web
  *
- * @author Kyou
- * @date 2018/12/18 21:26
+ * @author Kyou on 2018/12/18 21:26
  */
 @Slf4j
 @RestController
@@ -33,22 +31,14 @@ public class PropController {
     @GetMapping("/getProps")
     public List<Property> getProps() {
 
-        // for test
-        Property property = new Property();
-        property.setEnv("dev");
-        property.setName("port");
-        property.setValue("7001");
-
-        propertyRepository.save(property);
-
         return propertyRepository.findAll();
     }
 
     @PostMapping("/addProperty")
-    public Result<String> addProperty(Property property) {
+    public String addProperty(Property property) {
         log.debug("property: {}", property.toString());
 
         propertyRepository.save(property);
-        return Result.<String>builder().success(true).msg(property.toString()).build();
+        return "SUCCESS";
     }
 }

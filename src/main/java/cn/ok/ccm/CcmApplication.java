@@ -8,8 +8,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * PROJECT_NAME: ccm
  * PACKAGE_NAME: cn.ok.ccm.web
  *
- * @author Kyou
- * @date 2018/12/18 21:26
+ * @author Kyou on 2018/12/18 21:26
  */
 
 @SpringBootApplication

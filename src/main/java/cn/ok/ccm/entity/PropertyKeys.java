@@ -10,8 +10,7 @@ import java.io.Serializable;
  * PROJECT_NAME: ccm
  * PACKAGE_NAME: cn.ok.ccm.entity
  *
- * @author Kyou
- * @date 2018/12/18 21:48
+ * @author Kyou on 2018/12/18 21:48
  */
 @Data
 public class PropertyKeys implements Serializable {

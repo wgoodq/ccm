@@ -9,8 +9,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
  * PROJECT_NAME: ccm
  * PACKAGE_NAME: cn.ok.ccm.repository
  *
- * @author Kyou
- * @date 2018/12/18 21:41
+ * @author Kyou on 2018/12/18 21:41
  */
 public interface PropertyRepository extends JpaRepository<Property, PropertyKeys> {
 }
