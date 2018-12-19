@@ -1,12 +1,11 @@
 package cn.ok.ccm.web;
 
 import cn.ok.ccm.entity.Property;
+import cn.ok.ccm.entity.PropertyKeys;
 import cn.ok.ccm.repository.PropertyRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -28,17 +27,33 @@ public class PropController {
         this.propertyRepository = propertyRepository;
     }
 
-    @GetMapping("/getProps")
-    public List<Property> getProps() {
-
+    /**
+     * 查询全部属性
+     *
+     * @return List<Property>
+     */
+    @GetMapping("/prop/getAll")
+    public List<Property> getAll() {
         return propertyRepository.findAll();
     }
 
-    @PostMapping("/addProperty")
-    public String addProperty(Property property) {
-        log.debug("property: {}", property.toString());
-
+    /**
+     * 新增属性（JSON格式字符串）
+     *
+     * @param property 新增属性（JSON格式字符串）
+     */
+    @PostMapping("/prop/save")
+    public void save(@RequestBody Property property) {
         propertyRepository.save(property);
-        return "SUCCESS";
+    }
+
+    /**
+     * 通过主键删除属性
+     *
+     * @param propertyKeys 属性主键
+     */
+    @DeleteMapping("/prop/del")
+    public void del(@RequestBody PropertyKeys propertyKeys) {
+        propertyRepository.deleteById(propertyKeys);
     }
 }
